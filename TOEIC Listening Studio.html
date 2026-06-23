@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0059)file:///C:/Users/user/Downloads/toeic_listening_tool_8.html -->
+<!-- saved from url=(0059)file:///C:/Users/user/Downloads/toeic_listening_tool_9.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -472,7 +472,7 @@
       <div class="api-row">
         <input type="password" id="apiKey" placeholder="Gemini API Key を入力..." oninput="saveApiKey()">
       </div>
-      <div class="save-hint" id="saveHint" style="margin-top:4px">ブラウザに自動保存されます</div>
+      <div class="save-hint saved" id="saveHint" style="margin-top:4px">✓ 保存済みのキーを読み込みました</div>
     </div>
 
     <div class="divider"></div>
@@ -905,6 +905,8 @@ async function downloadAll() {
 
   setStatus('ダウンロード完了', 'done');
 }
+
+function setSpeed(rate) {
   playbackRate = rate;
   document.querySelectorAll('.speed-btn').forEach(btn => {
     btn.classList.toggle('active', parseFloat(btn.textContent) === rate);
