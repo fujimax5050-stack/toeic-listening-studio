@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0059)file:///C:/Users/user/Downloads/toeic_listening_tool_7.html -->
+<!-- saved from url=(0059)file:///C:/Users/user/Downloads/toeic_listening_tool_8.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -472,7 +472,7 @@
       <div class="api-row">
         <input type="password" id="apiKey" placeholder="Gemini API Key を入力..." oninput="saveApiKey()">
       </div>
-      <div class="save-hint saved" id="saveHint" style="margin-top:4px">✓ 保存済みのキーを読み込みました</div>
+      <div class="save-hint" id="saveHint" style="margin-top:4px">ブラウザに自動保存されます</div>
     </div>
 
     <div class="divider"></div>
@@ -545,8 +545,8 @@ Speaker A: Great, thanks."></textarea>
     </div>
 
     <div class="status-bar" id="statusBar">
-      <div class="status-dot done" id="statusDot"></div>
-      <span id="statusText">8ブロック生成完了 — 再生できます</span>
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">APIキーを入力してスクリプトを貼り付けてください</span>
     </div>
 
   </div>
@@ -556,70 +556,31 @@ Speaker A: Great, thanks."></textarea>
     <div class="panel-title">Playback</div>
 
     <div class="play-controls">
-      <button class="play-btn" id="playBtn" onclick="togglePlay()">
+      <button class="play-btn" id="playBtn" onclick="togglePlay()" disabled="">
         <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
       </button>
       <div class="progress-area">
-        <div class="progress-label" id="progressLabel">1 / 8</div>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 12.5%;"></div></div>
+        <div class="progress-label" id="progressLabel">— / —</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
       </div>
       <div class="speed-control">
         <div class="speed-label">速度</div>
         <div class="speed-buttons">
           <button class="speed-btn" onclick="setSpeed(0.75)">0.75x</button>
-          <button class="speed-btn" onclick="setSpeed(1.0)">1.0x</button>
-          <button class="speed-btn active" onclick="setSpeed(1.25)">1.25x</button>
+          <button class="speed-btn active" onclick="setSpeed(1.0)">1.0x</button>
+          <button class="speed-btn" onclick="setSpeed(1.25)">1.25x</button>
           <button class="speed-btn" onclick="setSpeed(1.5)">1.5x</button>
         </div>
       </div>
+      <button class="btn btn-secondary btn-small" id="downloadBtn" onclick="downloadAll()" disabled="" style="flex-shrink:0">⬇ DL</button>
     </div>
 
     <div class="audio-section" id="audioSection">
-      <div class="empty-state" id="emptyState" style="display: none;">
+      <div class="empty-state" id="emptyState">
         <div class="empty-icon">🎧</div>
         <p>スクリプトを入力して<br>音声を生成してください</p>
       </div>
-      <div class="audio-queue" id="audioQueue" style="display: flex;"><div class="audio-item" id="item-0" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-a)"></div>
-      <div class="audio-item-text">Hello, welcome to the central office. I'm looking for the marketing department, but I seem to be lost. Could you help me find it?</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-a)">A</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-0">✓</div>
-    </div><div class="audio-item" id="item-1" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-b)"></div>
-      <div class="audio-item-text">Oh, hello! The marketing department is actually on the third floor, but you need a temporary visitor's badge to access the elevator.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-b)">B</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-1">✓</div>
-    </div><div class="audio-item" id="item-2" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-c)"></div>
-      <div class="audio-item-text">Excuse me, I overheard you. I'm headed up to the third floor right now for a meeting with the marketing team. I can scan my badge for you.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-c)">C</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-2">✓</div>
-    </div><div class="audio-item" id="item-3" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-a)"></div>
-      <div class="audio-item-text">That would be wonderful, thank you so much! I have an interview with the project manager at 2:00 PM, so I was getting a bit worried about the time.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-a)">A</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-3">✓</div>
-    </div><div class="audio-item" id="item-4" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-b)"></div>
-      <div class="audio-item-text">You still have fifteen minutes, so you will make it just in time. Don't forget to sign your name in the guest log here before you go.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-b)">B</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-4">✓</div>
-    </div><div class="audio-item" id="item-5" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-c)"></div>
-      <div class="audio-item-text">Yes, please sign in quickly. After that, we can take the express elevator on the left. It goes straight to the third floor.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-c)">C</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-5">✓</div>
-    </div><div class="audio-item" id="item-6" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-a)"></div>
-      <div class="audio-item-text">Alright, I've just signed the log. I'm ready to go whenever you are.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-a)">A</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-6">✓</div>
-    </div><div class="audio-item" id="item-7" title="クリックしてここから再生" style="cursor: pointer;">
-      <div class="audio-item-dot" style="background:var(--speaker-c)"></div>
-      <div class="audio-item-text">Perfect. Let's head over to the elevators now so you won't be late for your interview.</div>
-      <div class="audio-item-speaker" style="color:var(--speaker-c)">C</div>
-      <div style="font-size:11px;color:var(--text-muted);font-family:&#39;JetBrains Mono&#39;,monospace" id="item-status-7">✓</div>
-    </div></div>
+      <div class="audio-queue" id="audioQueue" style="display:none"></div>
     </div>
   </div>
 </main>
@@ -839,6 +800,7 @@ async function generateAudio() {
   document.getElementById('progressFill').style.width = '100%';
   document.getElementById('progressLabel').textContent = `1 / ${audioQueue.length}`;
   document.getElementById('playBtn').disabled = false;
+  document.getElementById('downloadBtn').disabled = false;
   document.getElementById('generateBtn').disabled = false;
 }
 
@@ -899,7 +861,50 @@ function updateProgress(index) {
   document.getElementById('progressFill').style.width = total ? `${((index + 1) / total) * 100}%` : '0%';
 }
 
-function setSpeed(rate) {
+async function downloadAll() {
+  if (audioQueue.length === 0) return;
+
+  setStatus('音声を結合中...', 'active');
+
+  // Decode all buffers and merge into one
+  const ctx = getAudioContext();
+  const decoded = [];
+  let totalLength = 0;
+
+  for (const item of audioQueue) {
+    const buf = await ctx.decodeAudioData(item.buffer.slice(0));
+    decoded.push(buf);
+    totalLength += buf.length;
+  }
+
+  // Create merged AudioBuffer
+  const merged = ctx.createBuffer(1, totalLength, decoded[0].sampleRate);
+  const output = merged.getChannelData(0);
+  let offset = 0;
+  for (const buf of decoded) {
+    output.set(buf.getChannelData(0), offset);
+    offset += buf.length;
+  }
+
+  // Convert to WAV
+  const pcm = new Int16Array(merged.length);
+  const channel = merged.getChannelData(0);
+  for (let i = 0; i < channel.length; i++) {
+    pcm[i] = Math.max(-32768, Math.min(32767, Math.round(channel[i] * 32767)));
+  }
+  const wav = pcmToWav(pcm, merged.sampleRate);
+
+  // Download
+  const blob = new Blob([wav], { type: 'audio/wav' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'toeic_listening.wav';
+  a.click();
+  URL.revokeObjectURL(url);
+
+  setStatus('ダウンロード完了', 'done');
+}
   playbackRate = rate;
   document.querySelectorAll('.speed-btn').forEach(btn => {
     btn.classList.toggle('active', parseFloat(btn.textContent) === rate);
@@ -926,6 +931,7 @@ function clearAll() {
   document.getElementById('audioQueue').style.display = 'none';
   document.getElementById('emptyState').style.display = 'flex';
   document.getElementById('playBtn').disabled = true;
+  document.getElementById('downloadBtn').disabled = true;
   document.getElementById('progressFill').style.width = '0%';
   document.getElementById('progressLabel').textContent = '— / —';
   setPlayIcon(false);
