@@ -777,11 +777,9 @@ async function generateAudio() {
     document.getElementById('progressFill').style.width = `${(i / blocks.length) * 100}%`;
     try {
       const buffer = await fetchTTS(b.text, voice, apiKey);
-      // Gemini returns raw 16-bit PCM at 24000Hz — must wrap in WAV before decoding
-      const pcm = new Int16Array(buffer);
-      const wav = pcmToWav(pcm, 24000);
+      // Pre-decode and store both raw and decoded versions
       const ctx = getAudioContext();
-      const decoded = await ctx.decodeAudioData(wav);
+      const decoded = await ctx.decodeAudioData(buffer.slice(0));
       audioQueue.push({ ...b, buffer, decoded });
       document.getElementById(`item-status-${i}`).textContent = '✓';
     } catch (e) {
