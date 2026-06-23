@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0059)file:///C:/Users/user/Downloads/toeic_listening_tool_9.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOEIC Listening Studio</title>
 <style>
@@ -470,9 +470,9 @@
     <div>
       <div class="panel-title">API Key</div>
       <div class="api-row">
-        <input type="password" id="apiKey" placeholder="Gemini API Key を入力..." oninput="saveApiKey()" />
+        <input type="password" id="apiKey" placeholder="Gemini API Key を入力..." oninput="saveApiKey()">
       </div>
-      <div class="save-hint" id="saveHint" style="margin-top:4px">ブラウザに自動保存されます</div>
+      <div class="save-hint saved" id="saveHint" style="margin-top:4px">✓ 保存済みのキーを読み込みました</div>
     </div>
 
     <div class="divider"></div>
@@ -482,8 +482,8 @@
       <div class="script-hint" style="margin-bottom:8px">
         話者を <strong>Speaker A:</strong> / <strong>Speaker B:</strong> / <strong>Speaker C:</strong> の形式で書いてください
       </div>
-      <textarea id="scriptInput" placeholder="Speaker A: Alright, let's get started...
-Speaker B: Sure, I'll check the schedule.
+      <textarea id="scriptInput" placeholder="Speaker A: Alright, let&#39;s get started...
+Speaker B: Sure, I&#39;ll check the schedule.
 Speaker A: Great, thanks."></textarea>
       <button class="template-btn" onclick="loadTemplate()" style="margin-top:6px">▶ サンプルスクリプトを読み込む</button>
     </div>
@@ -502,7 +502,7 @@ Speaker A: Great, thanks."></textarea>
               <option value="Charon">Charon (Male, deep)</option>
               <option value="Fenrir">Fenrir (Male, excitable)</option>
               <option value="Kore">Kore (Female, firm)</option>
-              <option value="Puck" selected>Puck (Male, upbeat)</option>
+              <option value="Puck" selected="">Puck (Male, upbeat)</option>
             </select>
           </div>
         </div>
@@ -513,7 +513,7 @@ Speaker A: Great, thanks."></textarea>
           </div>
           <div class="speaker-voice-row">
             <select id="voiceB">
-              <option value="Aoede" selected>Aoede (Female, natural)</option>
+              <option value="Aoede" selected="">Aoede (Female, natural)</option>
               <option value="Charon">Charon (Male, deep)</option>
               <option value="Fenrir">Fenrir (Male, excitable)</option>
               <option value="Kore">Kore (Female, firm)</option>
@@ -531,7 +531,7 @@ Speaker A: Great, thanks."></textarea>
               <option value="Aoede">Aoede (Female, natural)</option>
               <option value="Charon">Charon (Male, deep)</option>
               <option value="Fenrir">Fenrir (Male, excitable)</option>
-              <option value="Kore" selected>Kore (Female, firm)</option>
+              <option value="Kore" selected="">Kore (Female, firm)</option>
               <option value="Puck">Puck (Male, upbeat)</option>
             </select>
           </div>
@@ -556,8 +556,8 @@ Speaker A: Great, thanks."></textarea>
     <div class="panel-title">Playback</div>
 
     <div class="play-controls">
-      <button class="play-btn" id="playBtn" onclick="togglePlay()" disabled>
-        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <button class="play-btn" id="playBtn" onclick="togglePlay()" disabled="">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
       </button>
       <div class="progress-area">
         <div class="progress-label" id="progressLabel">— / —</div>
@@ -572,7 +572,7 @@ Speaker A: Great, thanks."></textarea>
           <button class="speed-btn" onclick="setSpeed(1.5)">1.5x</button>
         </div>
       </div>
-      <button class="btn btn-secondary btn-small" id="downloadBtn" onclick="downloadAll()" disabled style="flex-shrink:0">⬇ DL</button>
+      <button class="btn btn-secondary btn-small" id="downloadBtn" onclick="downloadAll()" disabled="" style="flex-shrink:0">⬇ DL</button>
     </div>
 
     <div class="audio-section" id="audioSection">
@@ -951,5 +951,6 @@ Speaker A: Okay, I'll draft an email to the Marketing team this afternoon. Can o
 Speaker B: I can handle that. I'll have it ready by end of day.`;
 }
 </script>
-</body>
-</html>
+
+
+</body></html>
